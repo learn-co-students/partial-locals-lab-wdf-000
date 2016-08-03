@@ -39,6 +39,7 @@ RSpec.describe "classroom_show_view" do
     view.lookup_context.prefixes = %w[students, classrooms]
     assign(:classroom, classroom)
     render :template => "classrooms/show.html.erb"
+    # binding.pry
     expect(classroom.students.count).to eq 5
     classroom.students.each do |student|
       expect(rendered).to include(student.name)
