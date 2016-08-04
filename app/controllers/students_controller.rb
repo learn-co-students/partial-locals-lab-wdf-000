@@ -16,15 +16,19 @@ class StudentsController < ApplicationController
     @student = Student.find(params[:id])
   end
 
-  def show
-    @student = Student.find(params[:id])
+  def index
+    binding.pry
+    @students = Student.search(params[:name])
   end
 
-  def index
-    @students = Student.all
+
+  def show
+    @student = Student.find(params[:id])
   end
 
   def student_params
     params.require(:student).permit(:name, :birthday, :hometown)
   end
+
+
 end
