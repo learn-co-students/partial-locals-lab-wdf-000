@@ -13,4 +13,9 @@
 class Student < ActiveRecord::Base
   has_many :classroom_students
   has_many :classrooms, through: :classroom_students
+
+  def self.search(name)
+    name_regex = name.strip.empty? ? /./ : /#{name.downcase}/
+    self.all.select {|student| student.name.downcase.match(name_regex) }
+  end
 end
