@@ -176,6 +176,7 @@ PLATFORMS
 
 DEPENDENCIES
   annotate
+  byebug
   coffee-rails (~> 4.1.0)
   faker
   jbuilder (~> 2.0)
@@ -192,4 +193,4 @@ DEPENDENCIES
   web-console (~> 2.0)
 
 BUNDLED WITH
-   1.10.6
+   1.12.5
