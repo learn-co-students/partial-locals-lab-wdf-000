@@ -16,7 +16,7 @@ class Student < ActiveRecord::Base
 
   def self.search(input)
     # if input empty string return all students
-    if input == ''
+    if input.blank?
       Student.all
     else
       # otherwise return all students that match input
