@@ -13,4 +13,17 @@
 class Student < ActiveRecord::Base
   has_many :classroom_students
   has_many :classrooms, through: :classroom_students
+
+  def self.search(input)
+    # if input empty string return all students
+    if input == ''
+      Student.all
+    else
+      # otherwise return all students that match input
+      Student.all.select do |student|
+        student if !!student.name.downcase.match(input)
+      end
+    end
+  end
+
 end
