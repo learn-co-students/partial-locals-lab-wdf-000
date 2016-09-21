@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
   resources :classrooms
   resources :students
+
+    resources :students do
+      member do
+        post :search
+      end
+    end
+  # get "/students" => "students#index"
+  # resources :student, :students
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

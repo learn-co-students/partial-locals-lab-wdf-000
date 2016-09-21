@@ -1,6 +1,7 @@
 class StudentsController < ApplicationController
   def new
     @student = Student.new
+
   end
 
   def create
@@ -21,7 +22,22 @@ class StudentsController < ApplicationController
   end
 
   def index
+    # binding.pry
     @students = Student.all
+    # binding.pry
+    if params[:search]
+      @students = Student.search(params[:search])
+    end
+
+  end
+
+  def search
+    @students = Student.all
+    # binding.pry
+    if params[:search]
+      @student = Student.search(params[:search])
+    end
+    redirect_to index
   end
 
   def student_params
