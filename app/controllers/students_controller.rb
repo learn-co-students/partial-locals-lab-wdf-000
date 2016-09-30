@@ -21,7 +21,8 @@ class StudentsController < ApplicationController
   end
 
   def index
-    @students = Student.all
+    @students = Student.serach(search_string)
+    render 'index'
   end
 
   def student_params
